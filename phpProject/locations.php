@@ -1,0 +1,11 @@
+<?php
+$home="/phpProject/";
+$product_loc=$home."view/product.php";
+$about_loc=$home."view/about.php";
+$contact_loc=$home."view/contact.php";
+$myaccount_loc=$home."view/myaccount.php";
+$logout_loc=$home."log_out.php";
+$register_loc=$home."view/user-register.php";
+$login_loc=$home."view/login.php";
+$db_conn_loc=$_SERVER['DOCUMENT_ROOT'].$home."model/db_conn.php";
+?>
