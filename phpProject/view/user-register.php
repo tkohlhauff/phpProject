@@ -3,35 +3,38 @@
 <?php 	
 		if(!empty($_POST)){
 			$not_in_tbl=TRUE;
-			$user_email=$_POST['email'];
-			$user_pwd=$_POST['pwd'];
-			$user_re_pwd=$_POST['re_pwd'];
 			$f_name=$_POST['f_name'];
 			$l_name=$_POST['l_name'];
-			if($user_pwd==$user_re_pwd){
+			if($_POST['pwd']==$_POST['re_pwd']){
 				$username="maintenance";
 				$password="040700";
 				$db_name="test";
-				$user_info=[$user_email,md5($user_pwd)];
+				$user_info=[$_POST['email'],md5($_POST['pwd'])];
 				//UPDATED CONNECTION USING PDO
 				$database= new db($username,$password,$db_name);
 				$select_query="SELECT email FROM user;";
 				$result=$database->select($select_query);
 				foreach($result as $row){
-					if($user_email== $row['email']){
+					if($_POST['email']== $row['email']){
 						$not_in_tbl=FALSE;
 						break;
 					}
-					
+					//User email is not in use already !
 				}
 				if($not_in_tbl){
 					$insert_query="INSERT INTO user(email,password) VALUES (:email,:password)";
 					$database->insert($insert_query,$user_info);
+					$insert_query="INSERT INTO customer(first_name,last_name) VALUES(:fname,:lname)";
+					$user_info=[$f_name,$l_name];
+					$database->insert($insert_query,$user_info);
+					$_SESSION['user']=$_POST['email'];
 					header("Location: $myaccount_loc");
 					exit;
 				}
-				else{}
+				else{
 					//Throw error saying email in use
+				}
+					
 			}
 		}
 ?>

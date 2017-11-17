@@ -1,4 +1,11 @@
-<?php include '../header.php'?>
+<?php include '../header.php'; include"$db_conn_loc" ?>
+<?php 
+		$username="maintenance";
+		$password="040700";
+		//UPDATED CONNECTION USING PDO
+		$database= new db($username,$password,'test');
+		$query="SELECT";
+?>
 <div class="container-fluid">
   <h1 class="center">My Account Info</h1>
 

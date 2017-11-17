@@ -1,19 +1,27 @@
 <?php  include '../header.php'; include "$db_conn_loc";?>
 <?php
 		if(!empty($_POST)){
-			$user_email=$_POST['email'];
+			$user_email=[$_POST['email']];
 			$username="maintenance";
 			$password="040700";
 			//UPDATED CONNECTION USING PDO
 			$database= new db($username,$password,'test');
 			$query="SELECT password FROM user WHERE email=?";
-			$result=$database->select($query,$user_email);
-			if(md5($_POST['pwd']==$result['password'])){
-				$_SESSION['user']=$user_email;
-				$location='/phpProject/';
-				header("Location: $location");
-				exit;
+			try{
+				$result=$database->select($query,$user_email);
+				if(md5($_POST['pwd'])==$result[0]["password"]){
+					$_SESSION['user']=$user_email;
+					$location='/phpProject/';
+					header("Location: $location");
+					exit;
+				}
+				else
+					echo "<script>alert('There was an error. Please retype your email and password')</script>";
 			}
+			catch(Exception $e){
+				echo "<script>alert('There was an error. Please retype your email and password')</script>";
+			}
+			
 			//OLD CONNECTION USE FOR TESTING ONLY
 			/*$database="test";
 			$link=mysqli_connect("localhost",$username,$password);
