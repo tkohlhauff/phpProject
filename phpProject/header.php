@@ -15,7 +15,7 @@
 <div class="container-fluid topHead" >
  <div class="row">
     <div class="col-sm-4"></div>
-    <div class="col-sm-4"><img src="../images/logo2.png"></div>
+    <div class="col-sm-4"><img src=<?php echo $images_loc."logo2.png"?>></div>
     <div class="col-sm-4"></div>
   </div>
 </div>
@@ -37,7 +37,7 @@
         <li><a href=<?php echo $contact_loc?>>CONTACT</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="view/cart.php"><span class="glyphicon glyphicon-shopping-cart">Cart</span></a></li>
+        <li><a href=<?php echo $cart_loc?>><span class="glyphicon glyphicon-shopping-cart">Cart</span></a></li>
 		<?php if(isset($_SESSION['user'])) {
 				echo "<li><a href=$myaccount_loc><span class='glyphicon glyphicon-user'>Account</span></a></li>";
 				echo "<li><a href=$logout_loc><span class='glyphicon glyphicon-log-out'></span>Log Out</a></li>;";

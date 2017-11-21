@@ -20,6 +20,7 @@ class cart
 	{
 		if(isset($_SESSION['cart']['item'][$item_id])){
 			unset($_SESSION['cart']['item'][$item_id]);
+			unset($_SESSION['cart']['subtotal'][$item_id]);
 		}
 	}
 	public function empty_cart()

@@ -7,5 +7,7 @@ $myaccount_loc=$home."view/myaccount.php";
 $logout_loc=$home."log_out.php";
 $register_loc=$home."view/user-register.php";
 $login_loc=$home."view/login.php";
+$images_loc=$home."images/";
+$cart_loc=$home."view/cart.php";
 $db_conn_loc=$_SERVER['DOCUMENT_ROOT'].$home."model/db_conn.php";
 ?>

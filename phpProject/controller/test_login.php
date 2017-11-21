@@ -15,29 +15,29 @@ table, th, td {
 if(!empty($_POST)){
 	$database= new db("maintenance","040700",'test');	
 	$test_cart=new cart();
-	//$test_cart->add_item($_POST['Item_ID'],$_POST['qty']);
-	//$test_cart->subtotal_item($_POST['Item_ID'],$database);
-	$test_cart->total();
-	$cart=$test_cart->get_items($database);
-	$html = "<table>";
-	$html .= "<tr>";
-	$html .="<th>Product</th>
-			<th>Quantity</th>
-			<th>Subtotal</th>";
-	$html .="</tr>";
-	$y=count($cart["product_name"]);
-	for($x=0;$x<$y;$x++){
-		$html .= "<tr>";
-		$html .= "<td>". $cart["product_name"][$x] . "</td>";
-		$html .= "<td>". $cart["item_qty"][$x]."</td>";
-		$html .="<td>".$cart["item_sub"][$x]."</td>";
-		$html .= "</tr>";
-	}
-	$html.="<tr>";
-	$html.="<td> Total</td>";
-	$html.="<td> </td>";
-	$html.="<td>".$_SESSION['cart']['total']."</td></tr>";
+	$test_cart->add_item($_POST['Item_ID'],$_POST['qty']);
+	$test_cart->subtotal_item($_POST['Item_ID'],$database);
+	// $test_cart->total();
+	// $cart=$test_cart->get_items($database);
+	// $html = "<table>";
+	// $html .= "<tr>";
+	// $html .="<th>Product</th>
+			// <th>Quantity</th>
+			// <th>Subtotal</th>";
+	// $html .="</tr>";
+	// $y=count($cart["product_name"]);
+	// for($x=0;$x<$y;$x++){
+		// $html .= "<tr>";
+		// $html .= "<td>". $cart["product_name"][$x] . "</td>";
+		// $html .= "<td>". $cart["item_qty"][$x]."</td>";
+		// $html .="<td>".$cart["item_sub"][$x]."</td>";
+		// $html .= "</tr>";
+	// }
+	// $html.="<tr>";
+	// $html.="<td> Total</td>";
+	// $html.="<td> </td>";
+	// $html.="<td>".$_SESSION['cart']['total']."</td></tr>";
 	
-	echo $html;
+	// echo $html;
 }
 ?>

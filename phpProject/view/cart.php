@@ -26,6 +26,8 @@ $test_cart->total();?>
 		  <?php
 			$y=count($cart["product_name"]);
 		  for($x=0;$x<$y;$x++){ ?>
+		  <?php $query = "SELECT product_id FROM product WHERE product_name= ? ";
+		  $result=$database->select($query,[$cart["product_name"][$x]]);?>
            <tbody>
             <tr>
               <td data-th="Product">
@@ -44,8 +46,8 @@ $test_cart->total();?>
               </td>
               <td data-th="Subtotal" class="text-center"><?php echo $cart["item_sub"][$x];?></td>
               <td class="actions" data-th="">
-                <button type="button" class="btn btn-danger">
-                  <span class="glyphicon glyphicon-remove"></span> Remove
+                <button type="button" class="btn btn-danger" >
+                  <span class="glyphicon glyphicon-remove"></span>REMOVE
                 </button>               
               </td>
             </tr>
