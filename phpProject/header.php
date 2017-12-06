@@ -1,4 +1,4 @@
-<?php session_start(); include 'locations.php'?>
+<?php session_start(); 	 include "controller/cart.php";include 'locations.php'; $cart=new cart();?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -1,4 +1,4 @@
-<?php include '../header.php'; include "$db_conn_loc";include "../controller/cart.php";
+<?php include '../header.php'; include "$db_conn_loc";
 ?>
 <?php
 	$username="maintenance";
@@ -12,9 +12,7 @@
     //$products =  $dbc->query($query);
     //$pages = $dbc->query($query);
 	if(!empty($_POST["add_to_cart"])){
-	$cart=new cart();
 	$cart->add_item($_POST["hidden_id"],$_POST["quantity"]);
-	$cart->subtotal_item($_POST["hidden_id"],$database);
 	}
 ?>
 
